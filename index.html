@@ -3,139 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <title>เลือกเมนูอาหาร</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Sarabun', sans-serif;
-      background-color: #f4f6f9;
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
+    body { font-family: sans-serif; padding: 20px; }
+    .menu-button, .topping-button {
+      margin: 5px; padding: 10px 15px;
+      background-color: #007bff; color: white;
+      border: none; border-radius: 5px; cursor: pointer;
     }
-    h2 {
-      color: #333;
-      border-left: 5px solid #007bff;
-      padding-left: 10px;
-    }
-    .menu-button {
-      margin: 8px 8px 8px 0;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
-    }
-    .menu-button:hover {
+    .menu-button:hover, .topping-button:hover {
       background-color: #0056b3;
-      transform: translateY(-2px);
     }
-    .clear-button {
-      background-color: #dc3545;
-    }
-    table {
-      margin-top: 20px;
-      border-collapse: collapse;
-      width: 100%;
-      background-color: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    th, td {
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
-    th {
-      background-color: #007bff;
-      color: white;
-    }
-    .selected-row:hover {
-      background-color: #f1f1f1;
-    }
-    .total {
-      font-weight: bold;
-      font-size: 18px;
-      margin-top: 15px;
-      color: #333;
-    }
-    .finish-button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 6px 12px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .finish-button:hover {
-      background-color: #1e7e34;
-    }
-    @media screen and (max-width: 600px) {
-      .menu-button {
-        width: 100%;
-        margin: 5px 0;
-      }
-    }
+    .clear-button { background-color: #dc3545; }
+    .done-button { background-color: #28a745; }
+    table { margin-top: 20px; border-collapse: collapse; width: 100%; }
+    td, th { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    .section-title { margin-top: 40px; }
+    #toppingSection { margin-top: 20px; }
   </style>
 </head>
 <body>
 
   <h2>เมนูแนะนำ</h2>
   <div id="menuList">
-    <button class="menu-button" onclick="addMenu('หมีคำราม', 60)">หมีคำราม (60฿)</button>
-    <button class="menu-button" onclick="addMenu('นมหมีคำราม', 60)">นมหมีคำราม (60฿)</button>
-    <button class="menu-button" onclick="addMenu('โกโก้ชีส', 60)">โกโก้ชีส (60฿)</button>
-    <button class="menu-button" onclick="addMenu('ไมโลชีส', 60)">ไมโลชีส (60฿)</button>
- <h2>ชานม</h2>
-<div id="menuList">
-	   <button class="menu-button" onclick="addMenu('ชานมไต้หวัน', 40)">ชานมไต้หวัน (40฿)</button>
-	 <button class="menu-button" onclick="addMenu('ชานมเผือก', 50)">ชานมเผือก (50฿)</button>
-	 <button class="menu-button" onclick="addMenu('ชานมสตอเบอรรี้', 50)">ชานมสตอเบอรรี้ (50฿)</button>
-	<button class="menu-button" onclick="addMenu('ชาเขียว', 50)">ชาเขียว (50฿)</button>
-	<button class="menu-button" onclick="addMenu('ชานมคาปู', 50)">ชานมคาปู (50฿)</button>
-	<button class="menu-button" onclick="addMenu('ชานมน้ำผึ้ง', 50)">ชานมน้ำผึ้ง (50฿)</button>
- <h2>ชาผลไม้</h2>
-<div id="menuList">
-	   <button class="menu-button" onclick="addMenu('ชามะลิ', 40)">ชามะลิ (40฿)</button>
-	 <button class="menu-button" onclick="addMenu('ชาแอปเปิ้ล', 40)">ชาแอปเปิ้ล (40฿)</button>
-	 <button class="menu-button" onclick="addMenu('ชาสตอเบอรรี้', 40)">ชาสตอเบอรรี้ (40฿)</button>
-	<button class="menu-button" onclick="addMenu('ชาลิ้นจี่', 40)">ชาลิ้นจี่ (40฿)</button>
-	<button class="menu-button" onclick="addMenu('ชาน้ำผึ้งมะนาว', 50)">ชาน้ำผึ้งมะนาว (50฿)</button>
-	<button class="menu-button" onclick="addMenu('ชาบ๊วย', 50)">ชาบ๊วย (50฿)</button>
- <h2>นมสด</h2>
-<div id="menuList">
-	   <button class="menu-button" onclick="addMenu('นมสด', 50)">นมสด (50฿)</button>
-	 <button class="menu-button" onclick="addMenu('นมไมโล', 50)">นมไมโล (50฿)</button>
-	 <button class="menu-button" onclick="addMenu('นมโกโก้', 50)">นมโกโก้ (50฿)</button>
-	<button class="menu-button" onclick="addMenu('นมสตอเบอรรี้', 50)">นมสตอเบอรรี้ (50฿)</button>
-	<button class="menu-button" onclick="addMenu('นมเผือก', 50)">นมเผือก (50฿)</button>
-	  </div>
+    <button class="menu-button" onclick="selectBaseMenu('หมีคำราม', 60)">หมีคำราม (60฿)</button>
+    <button class="menu-button" onclick="selectBaseMenu('นมหมีคำราม', 60)">นมหมีคำราม (60฿)</button>
+    <button class="menu-button" onclick="selectBaseMenu('โกโก้ชีส', 60)">โกโก้ชีส (60฿)</button>
+    <button class="menu-button" onclick="selectBaseMenu('ไมโลชีส', 60)">ไมโลชีส (60฿)</button>
+  </div>
 
-  <h2>เมนูที่เลือก (กำลังทำ)</h2>
+  <div id="toppingSection" style="display:none;">
+    <h3>เลือก Topping สำหรับ <span id="selectedBaseName"></span></h3>
+    <button class="topping-button" onclick="confirmMenu('+ ไข่มุก', 10)">ไข่มุก (+10฿)</button>
+    <button class="topping-button" onclick="confirmMenu('+ ชีส', 15)">ชีส (+15฿)</button>
+    <button class="topping-button" onclick="confirmMenu('', 0)">ไม่ใส่ Topping</button>
+  </div>
+
+  <h2 class="section-title">เมนู "กำลังทำ"</h2>
   <table id="selectedTable">
     <thead>
       <tr>
         <th>ลำดับ</th>
         <th>ชื่อเมนู</th>
         <th>ราคา (฿)</th>
-        <th>สถานะ</th>
+        <th>ดำเนินการ</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- แสดงเมนูที่เลือก -->
-    </tbody>
+    <tbody></tbody>
   </table>
+  <div id="totalPrice">รวมทั้งหมด: 0 บาท</div>
+  <button class="menu-button clear-button" onclick="clearAll()">ล้างทั้งหมด</button>
 
-  <div class="total" id="totalPrice">รวมทั้งหมด: 0 บาท</div>
-  <!-- ปุ่มล้างเฉพาะตารางบน -->
-  <button class="menu-button clear-button" onclick="clearSelected()">ล้างเมนูที่เลือก</button>
-
-  <h2>เมนูที่เสร็จแล้ว (สรุปยอดรวมรายวัน)</h2>
-  <table id="finishedTable">
+  <h2 class="section-title">รายการที่เสร็จแล้ว</h2>
+  <table id="doneTable">
     <thead>
       <tr>
         <th>ลำดับ</th>
@@ -143,138 +62,106 @@
         <th>ราคา (฿)</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- แสดงเมนูที่เสร็จ -->
-    </tbody>
+    <tbody></tbody>
   </table>
-  <div class="total" id="finishedTotalPrice">รวมทั้งหมด: 0 บาท</div>
-  <!-- ปุ่มสรุปยอดและลบข้อมูลตารางล่าง -->
-  <button class="menu-button clear-button" style="background-color:#28a745; margin-top:10px;" onclick="finalizeSales()">สรุปยอด</button>
+  <div id="doneTotal">รวมรายวัน: 0 บาท</div>
+  <button class="menu-button clear-button" onclick="clearDoneAndSummarize()">สรุปยอด</button>
 
-<script>
-  const storageKeySelected = "selectedMenus_" + new Date().toISOString().split('T')[0];
-  const storageKeyFinished = "finishedMenus_" + new Date().toISOString().split('T')[0];
+  <script>
+    let selectedMenus = [];
+    let doneMenus = [];
+    let currentBaseMenu = null;
 
-  let selectedMenus = [];
-  let finishedMenus = [];
+    const todayKey = 'menus_' + new Date().toISOString().split('T')[0];
+    const doneKey = todayKey + '_done';
 
-  // โหลดข้อมูลจาก localStorage ทั้ง 2 ตัว
-  window.onload = () => {
-    const storedSelected = localStorage.getItem(storageKeySelected);
-    const storedFinished = localStorage.getItem(storageKeyFinished);
-    if (storedSelected) selectedMenus = JSON.parse(storedSelected);
-    if (storedFinished) finishedMenus = JSON.parse(storedFinished);
-    renderTables();
-  };
+    window.onload = () => {
+      const saved = localStorage.getItem(todayKey);
+      if (saved) selectedMenus = JSON.parse(saved);
 
-  function addMenu(name, price) {
-    selectedMenus.push({ name, price });
-    saveToStorage();
-    renderTables();
-  }
+      const done = localStorage.getItem(doneKey);
+      if (done) doneMenus = JSON.parse(done);
 
-  function finishOrder(index) {
-    // ย้ายเมนูจาก selected ไป finished
-    const finishedItem = selectedMenus.splice(index, 1)[0];
-    finishedMenus.push(finishedItem);
-    saveToStorage();
-    renderTables();
-  }
+      renderTables();
+    };
 
-  function clearSelected() {
-    if (confirm("แน่ใจว่าต้องการล้างเมนูที่เลือกทั้งหมด?")) {
-      selectedMenus = [];
-      localStorage.setItem(storageKeySelected, JSON.stringify(selectedMenus));
-      renderSelectedTable();
+    function selectBaseMenu(name, price) {
+      currentBaseMenu = { name, price };
+      document.getElementById("selectedBaseName").textContent = name;
+      document.getElementById("toppingSection").style.display = "block";
     }
-  }
 
-  function finalizeSales() {
-    if (finishedMenus.length === 0) {
-      alert("ไม่มีเมนูที่เสร็จแล้วในวันนี้");
-      return;
+    function confirmMenu(toppingText, toppingPrice) {
+      if (!currentBaseMenu) return;
+
+      const fullName = currentBaseMenu.name + (toppingText ? ' ' + toppingText : '');
+      const fullPrice = currentBaseMenu.price + toppingPrice;
+
+      selectedMenus.push({ name: fullName, price: fullPrice });
+      currentBaseMenu = null;
+
+      document.getElementById("toppingSection").style.display = "none";
+      saveToStorage();
+      renderTables();
     }
-    let total = finishedMenus.reduce((sum, item) => sum + item.price, 0);
-    alert(`สรุปยอดรายวัน: ได้เงินทั้งหมด ${total} บาท`);
-    // ลบข้อมูลตารางล่าง
-    finishedMenus = [];
-    localStorage.setItem(storageKeyFinished, JSON.stringify(finishedMenus));
-    renderFinishedTable();
-  }
 
-  function saveToStorage() {
-    localStorage.setItem(storageKeySelected, JSON.stringify(selectedMenus));
-    localStorage.setItem(storageKeyFinished, JSON.stringify(finishedMenus));
-  }
+    function markAsDone(index) {
+      const item = selectedMenus.splice(index, 1)[0];
+      doneMenus.push(item);
+      saveToStorage();
+      renderTables();
+    }
 
-  function renderTables() {
-    renderSelectedTable();
-    renderFinishedTable();
-  }
+    function clearAll() {
+      if (confirm("ล้างรายการ 'กำลังทำ' ทั้งหมด?")) {
+        selectedMenus = [];
+        saveToStorage();
+        renderTables();
+      }
+    }
 
-  function renderSelectedTable() {
-    const tbody = document.querySelector("#selectedTable tbody");
-    tbody.innerHTML = "";
-    let total = 0;
-    selectedMenus.forEach((item, index) => {
-      const row = document.createElement("tr");
+    function clearDoneAndSummarize() {
+      const total = doneMenus.reduce((sum, item) => sum + item.price, 0);
+      alert("สรุปยอดรายวัน: " + total + " บาท");
+      doneMenus = [];
+      saveToStorage();
+      renderTables();
+    }
 
-      const cellIndex = document.createElement("td");
-      cellIndex.textContent = index + 1;
+    function saveToStorage() {
+      localStorage.setItem(todayKey, JSON.stringify(selectedMenus));
+      localStorage.setItem(doneKey, JSON.stringify(doneMenus));
+    }
 
-      const cellName = document.createElement("td");
-      cellName.textContent = item.name;
+    function renderTables() {
+      const tbody = document.querySelector("#selectedTable tbody");
+      const tbodyDone = document.querySelector("#doneTable tbody");
+      tbody.innerHTML = "";
+      tbodyDone.innerHTML = "";
 
-      const cellPrice = document.createElement("td");
-      cellPrice.textContent = item.price;
+      let total = 0;
+      selectedMenus.forEach((item, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${item.name}</td>
+          <td>${item.price}</td>
+          <td><button class="done-button" onclick="markAsDone(${index})">เสร็จ</button></td>`;
+        tbody.appendChild(row);
+        total += item.price;
+      });
+      document.getElementById("totalPrice").textContent = `รวมทั้งหมด: ${total} บาท`;
 
-      const cellButton = document.createElement("td");
-      const finishBtn = document.createElement("button");
-      finishBtn.textContent = "เสร็จ";
-      finishBtn.className = "finish-button";
-      finishBtn.onclick = (e) => {
-        e.stopPropagation();
-        finishOrder(index);
-      };
-      cellButton.appendChild(finishBtn);
-
-      row.appendChild(cellIndex);
-      row.appendChild(cellName);
-      row.appendChild(cellPrice);
-      row.appendChild(cellButton);
-
-      tbody.appendChild(row);
-      total += item.price;
-    });
-    document.getElementById("totalPrice").textContent = `รวมทั้งหมด: ${total} บาท`;
-  }
-
-  function renderFinishedTable() {
-    const tbody = document.querySelector("#finishedTable tbody");
-    tbody.innerHTML = "";
-    let total = 0;
-    finishedMenus.forEach((item, index) => {
-      const row = document.createElement("tr");
-
-      const cellIndex = document.createElement("td");
-      cellIndex.textContent = index + 1;
-
-      const cellName = document.createElement("td");
-      cellName.textContent = item.name;
-
-      const cellPrice = document.createElement("td");
-      cellPrice.textContent = item.price;
-
-      row.appendChild(cellIndex);
-      row.appendChild(cellName);
-      row.appendChild(cellPrice);
-
-      tbody.appendChild(row);
-      total += item.price;
-    });
-    document.getElementById("finishedTotalPrice").textContent = `รวมทั้งหมด: ${total} บาท`;
-  }
-</script>
+      let doneTotal = 0;
+      doneMenus.forEach((item, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${index + 1}</td><td>${item.name}</td><td>${item.price}</td>`;
+        tbodyDone.appendChild(row);
+        doneTotal += item.price;
+      });
+      document.getElementById("doneTotal").textContent = `รวมรายวัน: ${doneTotal} บาท`;
+    }
+  </script>
 
 </body>
 </html>
