@@ -1,4 +1,4 @@
-**<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
@@ -153,6 +153,14 @@
     <button class="menu-button" onclick="selectBaseMenu('นมสตอเบอรี่', 50)">นมสตอเบอรี่ (50฿)</button>
     <button class="menu-button" onclick="selectBaseMenu('นมเผือก', 50)">นมเผือก (50฿)</button>
   </div>
+
+<h2>ชาไทย</h2>
+  <div>
+    <button class="menu-button" onclick="selectBaseMenu('ชาไทย', 40)">ชาไทย (40฿)</button>
+    <button class="menu-button" onclick="selectBaseMenu('ชาไทยไข่มุก', 50)">ชาไทยไข่มุก (50฿)</button>
+    <button class="menu-button" onclick="selectBaseMenu('ชาไทยดับเบิ้ลชีส', 65)">ชาไทยดับเบิ้ลชีส (65฿)</button>
+    <button class="menu-button" onclick="selectBaseMenu('ชาไทยดับเบิ้ลชีสไข่มุก', 75)">ชาไทยดับเบิ้ลชีสไข่มุก (75฿)</button>
+    </div>
 
   <!-- Section Topping -->
   <div id="toppingSection" style="display:none;">
@@ -400,4 +408,3 @@
   </script>
 </body>
 </html>
-**
